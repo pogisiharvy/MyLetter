@@ -4,6 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>A Love Letter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="https://i.loli.net/2021/06/03/lFg2V4WUcmkB98G.png">
     <meta name="language" content="en-US">
     <meta name="title" content="Student Sun">
@@ -57,6 +58,7 @@
     <audio id="media" src="message.MP3" preload="auto"></audio>
 
     <script>
+        // Existing script remains the same
         (function () {
             var canvas = $('#canvas');
 
@@ -202,6 +204,32 @@
 
             runAsync().start();
         })();
+    </script>
+    
+    <script>
+    // New script for responsive scaling
+    function scaleContent() {
+        const wrap = document.getElementById('wrap');
+        const main = document.getElementById('main');
+        const originalWidth = 1100;
+        const originalHeight = 680;
+
+        const windowWidth = window.innerWidth;
+
+        // Do not scale up, only scale down
+        let scale = Math.min(windowWidth / originalWidth, 1.0);
+
+        // Apply the scale transform
+        wrap.style.transformOrigin = 'top center';
+        wrap.style.transform = `scale(${scale})`;
+
+        // Adjust the height of the container to fit the scaled content
+        main.style.height = `${originalHeight * scale}px`;
+    }
+
+    // Scale on initial load and on window resize
+    window.addEventListener('load', scaleContent);
+    window.addEventListener('resize', scaleContent);
     </script>
 
 </body>
