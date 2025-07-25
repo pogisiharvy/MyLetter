@@ -7,8 +7,9 @@ body {
 	color: #000000;
 	overflow-x: hidden; /* Prevent horizontal scrollbar */
 	display: flex;
+	flex-direction: column; /* Stack main content and footer vertically */
 	justify-content: center;
-	align-items: flex-start;
+	align-items: center; /* Center content horizontally */
 }
 
 a {
@@ -87,4 +88,31 @@ a {
 
 .space {
 	margin-right: 150px;
+}
+
+#copyright {
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.5);
+    padding: 15px 0;
+    margin-top: 100px; /* Add margin to push it down */
+    position: relative; /* Ensure it stays in document flow */
+    z-index: 1; /* Keep above other elements if needed */
+}
+
+body {
+    margin: 0;
+    padding: 0 0 50px 0; /* Add padding at bottom for footer */
+    background: #ffc0cb;
+    font-size: 20px;
+    font-family: '微软雅黑', '宋体', sans-serif;
+    color: #000000;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure body takes at least full viewport height */
+    box-sizing: border-box; /* Include padding in height calculations */
 }
